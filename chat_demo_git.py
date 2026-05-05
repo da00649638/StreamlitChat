@@ -18,12 +18,10 @@ if not OPENAI_API_KEY:
 
 question = st.text_input("Enter your question")
 
-try:
+if question:    
     response = llm.invoke([
         HumanMessage(content=question)
     ])
     st.write(response.content)
 
-except Exception as e:
-    st.write("ERROR TYPE:", type(e).__name__)
-    # st.write("ERROR:", e)
+ 
